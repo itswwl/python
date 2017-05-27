@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<H1>测试POST提交</H1>
+<form action="{% url 'lpost' %}" method="post">
+
+    用户姓名：{{ form.name }}<br/>
+    用户密码：{{ form.password }}
+    {% comment %}<input type="text" name="name" id="name"/>{% endcomment %}
+    <br/>
+    <input type="submit" value="提交"/>
+
+</form>
+</body>
+</html>

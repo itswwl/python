@@ -1,0 +1,69 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>测试Orm映射框架</title>
+</head>
+<body>
+测试orm框架
+
+<table>
+
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>姓名</th>
+            <th>年龄</th>
+            <th>密码</th>
+            <th>日期</th>
+        </tr>
+
+    </thead>
+
+    <tbody>
+        <tr>
+            <td>id</td>
+            <td>username</td>
+            <td>userage</td>
+            <td>userpawssword</td>
+            <td>userdate</td>
+        </tr>
+    </tbody>
+</table>
+
+<button id="test">测试ajax</button>
+
+<script type="text/javascript" src="{% static 'js/jquery.min.js' %}"></script>
+<script type="text/javascript" >
+
+    $(function () {
+        //alert($("body").text());
+        //console.info();
+
+        $("#test").click(function(){
+                $.ajax({
+                    url:'/ajaxJson/',
+                    type:'post',
+                    data:{
+                        "id":1
+                    },
+                    dataType:'json',
+                    success:function (data) {
+                        var jsonData = eval("("+data+")");
+                        //console.info("=================")
+                        console.info(jsonData)
+                    }
+                });
+        });
+
+
+
+
+    });
+
+    //console.info($("tbody tr"))
+
+</script>
+</body>
+</html>

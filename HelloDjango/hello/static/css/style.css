@@ -1,0 +1,9 @@
+div{
+    width: 500px;
+    height: 200px;
+    border-color: darkgreen;
+    border-width: 5px;
+
+    background-color: red;
+
+}

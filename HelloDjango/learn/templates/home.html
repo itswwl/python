@@ -1,0 +1,70 @@
+{#{% extends "base.html" %}#}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <link href="{% static 'css/home.css' %}" rel="stylesheet" type="text/css">
+    <link href="{% static 'css/learn.css' %}" rel="stylesheet" type="text/css">
+    <link href="{% static 'css/style.css' %}" rel="stylesheet" type="text/css">
+</head>
+<body>
+
+<img src="{% static 'img/learn.jpg' %}">
+
+<div >
+
+    <span>测试不同app中具有相同文件</span>
+
+</div>
+{% include 'nav.html' %}
+welcome {{ name }} ! age {{ age }}
+{% comment %}{% block content %}
+    {{ name }}
+
+ {% endblock %}{% endcomment %}
+<div>
+
+    <h1>循环列表</h1>
+    {% for i in info %}
+        {% for j in i %}
+            {{ j }}--
+        {% endfor %}
+        <br/>
+    {% endfor %}
+
+</div>
+
+<button id="test">删除</button>
+<br/>
+
+
+
+<script type="text/javascript" src="{% static 'js/jquery.min.js' %}"></script>
+
+<script type="application/javascript">
+    /*$(document).ready(function(){
+            $.ajaxSetup({
+                 data: {csrfmiddlewaretoken: '{{ csrf_token }}' },
+            });*/
+ $("#test").click(function(){
+        var text =  $(this).text();
+        alert(text);
+        console.info(text);
+     $.ajax({
+         url:"/delete",
+         data:{'id':2},
+         dataType:'json',
+         type:'post',
+         success:function(data){
+             var jsonData = eval(data);
+             console.info(jsonData);
+         }
+     })
+
+    });
+
+</script>
+</body>
+</html>
